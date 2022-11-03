@@ -1,5 +1,5 @@
 
-var endings = ["mail.ru", "list.ru", "rambler.ru", "yandex.ru", "gmail.com"];
+var endings = ["mail.ru", "yandex.ru", "gmail.com"];
 var symbols = "qwertyuiopasdfghjklzxcvbnm1234567890";
 var codes = ["8911", "8921" , "8900" , "8992" ,"8904", "8924" ]
 var numbers = "1234567890";
@@ -21,7 +21,6 @@ function getEmail() {
     var   b = getRandomStr(rand(3, 5));
     return a + "." + b + "@" + endings[rand(0, endings.length - 1)];
 }
-
 function getRandomNumber(len) {
     var getNumber = "";
     for (var i = 0; i < len; i++)
@@ -67,4 +66,3 @@ describe('Тестирование staya', function () {
         cy.contains('Мои заказы');
     })
 })
-
