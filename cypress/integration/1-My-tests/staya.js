@@ -34,6 +34,8 @@ function randomNumber() {
 }
 
 
+var email = getEmail();
+
 describe('Тестирование staya', function () {
 
     it('Проваливаюсь в категорию поводки и ищу совпадение с названием Heatwave', function () {
@@ -48,7 +50,7 @@ describe('Тестирование staya', function () {
         cy.get('.header-bottom__right--link').click();
         cy.get('[name="first_name"]').type('Ivan');
         cy.get('[name="last_name"]').type('Ivanov');
-        cy.get('.registration__form > form > [type="email"]').type(`${getEmail()}`);
+        cy.get('.registration__form > form > [type="email"]').type(`${email}`);
         cy.get(':nth-child(6) > div > .field').type(`${randomNumber()}`);
         cy.get('.password-field > .field').type('Qwerty1234');
         cy.get('[name="repeat-password"]').type('Qwerty1234');
@@ -60,9 +62,10 @@ describe('Тестирование staya', function () {
     it('Проверка авторизации', function () {
         cy.visit(url);
         cy.get('.header-bottom__right--link').click();
-        cy.get('.auth-form > form > [type="email"]').type(`${getEmail()}`);
+        cy.get('.auth-form > form > [type="email"]').type(`${email}`);
         cy.get('.auth-form > form > [type="password"]').type('Qwerty1234');
         cy.get('.auth-form__submit').click();
         cy.contains('Мои заказы');
     })
 })
+
